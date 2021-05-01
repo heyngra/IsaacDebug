@@ -3,31 +3,28 @@
 import os
 import sys
 import getpass
-
 if os.name == "nt":
+    import msvcrt
     global windowspath
-    windowspath = r"%s/Documents/My Games/Binding Of Isaac Repentance/options.ini" % getpass.getuser()
+    windowspath = r"%s/Documents/My Games/Binding Of Isaac Repentance/options.ini" % os.environ['USERPROFILE']
 else:
     global linuxpath
     linuxpath = r"/home/%s/.steam/steam/steamapps/compatdata/250900/pfx/dosdevices/c:/users/steamuser/Documents/My Games/Binding of Isaac Repentance/options.ini" % getpass.getuser()
 
-    def clear():
-        if os.name == "nt":
-            os.system("cls")
-        else:
-            os.system("clear")
+def clear():
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
 
 clear()
 
 def yes_no(answer):
-    yes = set(['yes','y', 'ye', ''])
-    no = set(['no','n'])
-
     while True:
         choice = input(answer).lower()
-        if choice in yes:
+        if "y" in choice and not "n" in choice:
            return True
-        elif choice in no:
+        elif "n" in choice and not "y" in choice:
            return False
 
 def loadData():
@@ -44,8 +41,8 @@ def loadData():
                         return True
                     else:
                         return False
-        except:
-            raise FileNotFoundError("The options.ini file can't be found. Are you using Windows? If you want to report this issue, use this code: 5")
+        except Exception:
+            raise FileNotFoundError("The options.ini file can't be found. If you want to report this issue, use this code: 5")
     else:
         try:
             f = open(linuxpath, "r")
@@ -96,10 +93,17 @@ def main():
         print("If you want to disable debug console click Enter. Click any other button to close the app.")
     else:
         print("If you want to enable debug console click Enter. Click any other button to close the app.")
-    kinput = input()
-    if kinput == "":
-        debugConsole(x)
+    if os.name == "nt":
+        kinput = msvcrt.getch()
+        if kinput == b'\r':
+            debugConsole(x)
+        else:
+            sys.exit(1)
     else:
-        sys.exit(1)
+        kinput = input()
+        if kinput == "":
+            debugConsole(x)
+        else:
+            sys.exit(1)
 if __name__ == '__main__':
     main()
