@@ -1,0 +1,4 @@
+build/
+dist/
+DebugConsole.spec
+__pycache__/
