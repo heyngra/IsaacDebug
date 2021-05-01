@@ -2,3 +2,5 @@ build/
 dist/
 DebugConsole.spec
 __pycache__/
+*.spec
+Linux_Proton/
