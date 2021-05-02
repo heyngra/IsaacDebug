@@ -1,2 +1,2 @@
-cd venv/Scripts
-python.exe ../../DebugConsole.py
+cd venv/Linux/bin/
+./python ../../../DebugConsole.py
