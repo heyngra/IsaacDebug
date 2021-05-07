@@ -2,11 +2,11 @@
 This little python script allows you to enable/disable The Binding of Isaac: Repentance console in matter of seconds
 ## Setup (Windows)
 1. Download the latest version from [releases](https://github.com/heyngra/IsaacDebug/releases).
-2. Run the run.bat in Windows folder. (or run python3 DebugConsole.py)
+2. Run the `run.bat`. (or run `python3 DebugConsole.py`) If you downloaded `.exe` version, just run it.
 
 ## Setup (Linux proton)
 1. Download the latest version from [releases](https://github.com/heyngra/IsaacDebug/releases).
-2. Run the DebugConsole file in Linux folder. (or run python3 DebugConsole.py)
+2. Run the `run.sh` file. (or run `python3 DebugConsole.py`) If you downloaded the `DebugConsole` file, then run `./DebugConsole`
 
 ## Debugging
 
