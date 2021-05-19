@@ -1,4 +1,7 @@
 # IsaacDebug
+
+## As from 4.0.4, you can install mods to get access to the console!
+
 This little python script allows you to enable/disable The Binding of Isaac: Repentance console in matter of seconds
 ## Setup (Windows)
 1. Download the latest version from [releases](https://github.com/heyngra/IsaacDebug/releases).
